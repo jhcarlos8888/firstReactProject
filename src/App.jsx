@@ -1,8 +1,8 @@
 import imgUno from "./assets/images/imagenPequeña.jpg"
 
-const MyButton = () =>{
+const MyButton = (props) =>{
     return(
-        <button>Yo soy un botonsito</button>  
+        <button>{props.text}</button>  
     )
 };
 
@@ -15,6 +15,12 @@ const TextOnline = () =>{
 const TextOffline = () =>{
     return(
     <h3> Offline</h3>
+    )
+};
+
+const ItemFruta = (props) => {
+    return (
+        <li>{props.text}</li>
     )
 };
 
@@ -35,17 +41,20 @@ const App = () => {
     return(
     <>
     <h1 className={centrarTexto}>{extraccion}</h1>
-    <img src={imgUno} alt={coloresTitulo.titulo1} className={centrarTexto}/> 
-    <MyButton className={centrarTexto}></MyButton>
+    <img src={imgUno} alt={coloresTitulo.titulo1}/> 
+    <MyButton text="Boton Numero 1"></MyButton>
     { user ? <TextOnline/> : <TextOffline/> }
     <ul>
         {
-        frutas.map((frut, index) => (<li key={index}>{frut}</li>))
+            frutas.map((frut,index) => (
+               
+                <ItemFruta key={index} text={frut}></ItemFruta>
+            ))
         }
     </ul>
-
+    
     </>
-     
+
     )
        
 };
