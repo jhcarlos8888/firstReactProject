@@ -1,34 +1,55 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import imgUno from "./assets/images/imagenPequeña.jpg"
 
-function App() {
-  const [count, setCount] = useState(0)
+const MyButton = ({text}) => {
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
-}
+    const handleClickButton = (titleLogButton) => (
+        console.log("handle click" + titleLogButton)
+    )
 
-export default App
+    return (
+        <button onClick={() => (handleClickButton(text))}>{text}</button>
+    )
+
+};
+
+const WelcomeText = ({ user }) => (user ? <h3> Online</h3> : <h3>Offline</h3>);
+
+const ItemFruta = (props) => (<li>{props.frutica}</li>);
+
+
+
+const App = () => {
+
+    const centrarTexto = "text-center"
+    const valoresDescripciones = {
+        descripcion1: "Imagen de alta calidad",
+        descripcion2: "Imagen Open Source"
+    }
+    const tituloH1 = "Mi Titulo H1 de pagina"
+    const extraccion = tituloH1
+    const user = true
+    const frutas = ["😁", "🐱‍🏍", "🐱‍🚀"]
+
+
+    return (
+        <>
+            <h1 className={centrarTexto}>{extraccion}</h1>
+            <img src={imgUno} alt={valoresDescripciones.descripcion1} />
+            <MyButton text="Boton de pagina 1"></MyButton>
+            <MyButton text="Boton de pagina 2"></MyButton>
+            <WelcomeText user={user}></WelcomeText>
+            <ul>
+                {
+                    frutas.map((frut, index) => (
+                        <ItemFruta key={index} frutica={frut}></ItemFruta>
+                    ))
+                }
+            </ul>
+
+        </>
+
+    )
+
+};
+
+export default App;
