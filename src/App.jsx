@@ -1,62 +1,55 @@
 import imgUno from "./assets/images/imagenPequeña.jpg"
 
-const MyButton = (props) =>{
-    return(
-        <button>{props.text}</button>  
-    )
-};
+const MyButton = ({text}) => {
 
-const TextOnline = () =>{
-    return(
-    <h3> Online</h3>
+    const handleClickButton = (titleLogButton) => (
+        console.log("handle click" + titleLogButton)
     )
-};
 
-const TextOffline = () =>{
-    return(
-    <h3> Offline</h3>
-    )
-};
-
-const ItemFruta = (props) => {
     return (
-        <li>{props.text}</li>
+        <button onClick={() => (handleClickButton(text))}>{text}</button>
     )
+
 };
+
+const WelcomeText = ({ user }) => (user ? <h3> Online</h3> : <h3>Offline</h3>);
+
+const ItemFruta = (props) => (<li>{props.frutica}</li>);
+
 
 
 const App = () => {
-    const title = "Mi nombre desde una constante"
+
     const centrarTexto = "text-center"
-    const coloresTitulo = {
-        titulo1: "rojito",
-        titulo2: "omesito"
+    const valoresDescripciones = {
+        descripcion1: "Imagen de alta calidad",
+        descripcion2: "Imagen Open Source"
     }
-    const footer = "Mi pie de pagina"
-    const extraccion = footer
+    const tituloH1 = "Mi Titulo H1 de pagina"
+    const extraccion = tituloH1
     const user = true
-    const frutas = ["😁","🐱‍🏍","🐱‍🚀"]
+    const frutas = ["😁", "🐱‍🏍", "🐱‍🚀"]
 
 
-    return(
-    <>
-    <h1 className={centrarTexto}>{extraccion}</h1>
-    <img src={imgUno} alt={coloresTitulo.titulo1}/> 
-    <MyButton text="Boton Numero 1"></MyButton>
-    { user ? <TextOnline/> : <TextOffline/> }
-    <ul>
-        {
-            frutas.map((frut,index) => (
-               
-                <ItemFruta key={index} text={frut}></ItemFruta>
-            ))
-        }
-    </ul>
-    
-    </>
+    return (
+        <>
+            <h1 className={centrarTexto}>{extraccion}</h1>
+            <img src={imgUno} alt={valoresDescripciones.descripcion1} />
+            <MyButton text="Boton de pagina 1"></MyButton>
+            <MyButton text="Boton de pagina 2"></MyButton>
+            <WelcomeText user={user}></WelcomeText>
+            <ul>
+                {
+                    frutas.map((frut, index) => (
+                        <ItemFruta key={index} frutica={frut}></ItemFruta>
+                    ))
+                }
+            </ul>
+
+        </>
 
     )
-       
+
 };
 
 export default App;
