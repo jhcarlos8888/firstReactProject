@@ -26,20 +26,26 @@ const App = () => {
         titulo1: "rojito",
         titulo2: "omesito"
     }
-    
     const footer = "Mi pie de pagina"
     const extraccion = footer
     const user = true
-    
+    const frutas = ["😁","🐱‍🏍","🐱‍🚀"]
+
 
     return(
     <>
     <h1 className={centrarTexto}>{extraccion}</h1>
-    <img src={imgUno} alt={coloresTitulo.titulo1}/> 
-    <MyButton></MyButton>
-    {
-        user ? <TextOnline></TextOnline> : <TextOffline></TextOffline> 
-    }
+    <img src={imgUno} alt={coloresTitulo.titulo1} className={centrarTexto}/> 
+    <MyButton className={centrarTexto}></MyButton>
+    { user ? <TextOnline/> : <TextOffline/> }
+    <ul>
+        {
+            frutas.map((frut, index) => (
+                <li key={index}>{frut}</li>
+            ))
+        }
+    </ul>
+
     </>
      
     )
