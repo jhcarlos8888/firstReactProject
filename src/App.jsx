@@ -40,9 +40,7 @@ const App = () => {
     { user ? <TextOnline/> : <TextOffline/> }
     <ul>
         {
-            frutas.map((frut, index) => (
-                <li key={index}>{frut}</li>
-            ))
+        frutas.map((frut, index) => (<li key={index}>{frut}</li>))
         }
     </ul>
 
