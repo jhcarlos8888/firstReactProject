@@ -1,4 +1,4 @@
-const MyButton = ({text}) => {
+const MyButton = ({ text }) => {
 
     const handleClickButton = (titleLogButton) => (
         console.log("handle click" + titleLogButton)

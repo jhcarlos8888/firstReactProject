@@ -2,6 +2,7 @@ import imgUno from "./assets/images/imagenPequeña.jpg";
 import MyButton from "./components/MyButton";
 import WelcomeText from "./components/WelcomeText";
 import ListProductos from "./components/productos/ListProductos";
+import ButtonState from "./components/ButtonState";
 
 const App = () => {
 
@@ -19,6 +20,7 @@ const App = () => {
 
     return (
         <>
+            <ButtonState></ButtonState>
             <h1 className={centrarTexto}>{extraccion}</h1>
             <img src={imgUno} alt={valoresDescripciones.descripcion1} />
             <MyButton text="Boton de pagina 1"></MyButton>
