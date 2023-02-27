@@ -4,12 +4,8 @@ import { useState } from "react";
 const ButtonState = () =>{
    
     
-    const arrayUseState = useState(1);
+    const [stateNumber, stateFunction] = useState(0);
     
-    const stateNumber = arrayUseState[0];
-
-    const stateFunction = arrayUseState[1];
-
 
     const handleClick = () => {
         

@@ -16,6 +16,7 @@ const App = () => {
     const user = true
     const frutas = ["😁", "🐱‍🏍", "🐱‍🚀","👌"]
     const persons = ["🤷‍♀️", "🙌", "😆", "😍"]
+    
 
 
     return (
